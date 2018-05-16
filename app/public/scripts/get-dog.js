@@ -3,13 +3,11 @@ fetch(`/api/dogs/${getId()}`)
     .then(response => addDogToPage(response.dog));
 
 function getId() {
-  console.log((new URL(window.location.href)).pathname.split("/"))
-  const path = (new URL(window.location.href)).pathname.split("/")
-  return path[path.length - 1]
+  const path = (new URL(window.location.href)).pathname.split("/");
+  return path[path.length - 1];
 }
 
 function addDogToPage(dog){
-  console.log(dog);
     const $li = document.createElement("li");
     $li.innerHTML = `
         <h3 class="name"><a href="/dogs/${dog.id}">${dog.name}</a></h3>
